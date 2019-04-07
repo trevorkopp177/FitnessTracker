@@ -1,0 +1,247 @@
+<html>
+<style>
+        .heading
+        {
+                background-color: #B1B0AF;
+        }
+        .button
+        {
+                background: #B1B0AF;
+                width: 500px;
+                height:  100px;
+                font-size: 30px;
+        }
+		.dropbtn 
+		{
+			background-color: #B1B0AF;
+			color: white;
+			padding: 6px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			align: center;
+		}
+		dropbtnone 
+		{
+			background-color: #B1B0AF;
+			color: white;
+			padding: 6px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			align: center;
+		}
+		.dropbtn:hover, .dropbtn:focus 
+		{
+			background-color: #A6A5A5;
+		}
+
+		.dropdown 
+		{
+			position: relative;
+			display: inline-block;
+			align: center;
+		}
+
+		.dropdown-content 
+		{
+			display: none;
+			position: absolute;
+			background-color: #A6A5A5;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			align: center;
+		}
+
+		.dropdown-content a 
+		{
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			align: center;
+		}
+
+		.dropdown a:hover {background-color: #ddd;}
+
+		.show {display: block;}
+</style>
+<!-- Main part of the program -->
+<div class="topbar"> 
+<!-- Navigation -->
+<header>
+        <center>
+                <img src="builderheader.PNG" width="200" height="50" alt=""/>
+        </center>
+</header>
+
+</div>
+<body bgcolor="#eeeeee">
+        <!-- Main Container -->
+        <img src = "back_button.PNG" onMouseDown="back()">
+        <img src="gear.PNG" onMouseDown="account_info()" align="right">
+        <br>
+
+<!--Add exercise Button-->		
+<div class="dropbtn"; align="center" >
+	<img src = "addexercise.PNG" onclick="addButton()" align="center">
+</div>
+
+<!--Initial Exercise Dropdown-->
+<form>
+Workout Name: <input type="text" name="Workout Name" value="Type Name Here">
+</form>
+
+Add Athletes:
+
+<br>
+<br>
+Main Exercises:
+
+<br>
+<form>
+<br>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Squat</option>
+	<option value="Deadlift">Deadlift</option>
+	<option value="Bench Press">Bench Press</option>
+	<option value="Pull Ups">Pull Ups</option>
+	<option value="Overhead Press">Overhead Press</option>
+	<option value="Tricep Extension">Tricep Extension</option>
+	<option value="Crunches">Crunches</option>
+</select>
+</form>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Squat</option>
+	<option value="Deadlift">Deadlift</option>
+	<option value="Bench Press">Bench Press</option>
+	<option value="Pull Ups">Pull Ups</option>
+	<option value="Overhead Press">Overhead Press</option>
+	<option value="Tricep Extension">Tricep Extension</option>
+	<option value="Crunches">Crunches</option>
+</select>
+</form>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Squat</option>
+	<option value="Deadlift">Deadlift</option>
+	<option value="Bench Press">Bench Press</option>
+	<option value="Pull Ups">Pull Ups</option>
+	<option value="Overhead Press">Overhead Press</option>
+	<option value="Tricep Extension">Tricep Extension</option>
+	<option value="Crunches">Crunches</option>
+</select>
+</form>
+<br>
+Supporting Exercises:
+<br>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Wrist Curls</option>
+	<option value="Deadlift">Curls</option>
+	<option value="Bench Press">Calf Raises</option>
+	<option value="Pull Ups">Lunges</option>
+	<option value="Overhead Press">Jumping Jacks</option>
+</select>
+</form>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Wrist Curls</option>
+	<option value="Deadlift">Curls</option>
+	<option value="Bench Press">Calf Raises</option>
+	<option value="Pull Ups">Lunges</option>
+	<option value="Overhead Press">Jumping Jacks</option>
+</select>
+</form>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Wrist Curls</option>
+	<option value="Deadlift">Curls</option>
+	<option value="Bench Press">Calf Raises</option>
+	<option value="Pull Ups">Lunges</option>
+	<option value="Overhead Press">Jumping Jacks</option>
+</select>
+</form>
+<br>
+<form>
+<select name="Select Exercise" class="dropbtn" align="center">
+	<option value="Select Exercise" selected disabled hidden>Select Exercise</option>
+	<option value="Squat">Wrist Curls</option>
+	<option value="Deadlift">Curls</option>
+	<option value="Bench Press">Calf Raises</option>
+	<option value="Pull Ups">Lunges</option>
+	<option value="Overhead Press">Jumping Jacks</option>
+</select>
+</form>
+<!-- Bottom of the page-->
+        <img src = "Home.PNG" onMouseDown="home()" align="right">
+</body>
+
+<script>
+        function showDiv() 
+		{
+			document.getElementById('sign-in').style.display = "block";
+		}
+		function back()
+        {
+
+        }
+		function addButton()
+		{
+			var newListData = new Option("Squat", "Squat");
+			newList.appendChild(newListData);
+			
+			newList.appendChild(new Option("Deadlift", "Deadlift");
+			newList.appendChild(new Option("Bench Press", "Bench Press");
+			newList.appendChild(new Option("Pull Ups", "Pull Ups");
+			newList.appendChild(new Option("Overhead Press", "Overhead Press");
+			newList.appendChild(new Option("Tricep Extensions", "Tricep Extensions");
+			newList.appendChild(new Option("Crunches", "Crunches");
+		}
+			
+		function DropDown() 
+		{
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+
+		window.onclick = function(event) 
+		{
+			if (!event.target.matches('.dropbtn')) 
+			{
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) 
+				{
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) 
+				{
+				openDropdown.classList.remove('show');
+				}
+				}
+			}
+		}
+        function home()
+        {
+                
+        }
+        function account_info()
+        {
+                
+        }
+</script>
+</html>
