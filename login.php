@@ -30,14 +30,14 @@ $result = $conn->query($sql);
 if ($result->num_rows === 1) {
     session_start();
     $row = $result->fetch_assoc();
-	unset($_SESSION['row']);
+	unset($_SESSION['id']);
    
-	if (!isset($_SESSION['row'])) { 
+	if (!isset($_SESSION['id'])) { 
 		if($userType == "coach"){
-			$_SESSION['row'] = $row;        
+			$_SESSION['id'] = $row["id"];        
 			header("location: coach_home.php");
 		} else {
-			$_SESSION['row'] = $row;        
+			$_SESSION['id'] = $row["id"];        
 			header("location: student_home.php");
 		}
 	}

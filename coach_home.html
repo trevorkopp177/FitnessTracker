@@ -36,13 +36,13 @@
 <div class="header">
 	<img src="logo.png" alt="FitnessTracker" id="logo">
 </div>
-<h2>Athlete Home</h2>
+<h2>Coach Home</h2>
 <br>What would you like to do?&nbsp;<br>
 <br>
 <div class="main">
-<a href="acct.php"><img src="acct.png" alt="MyAcct" id="acct"></a>
-<a href="user_post.php" class="button">Post Workout</a>
-<a href="user_view.php" class="button">View Workout</a>
+<a href="admin_acct.php"><img src="acct.png" alt="MyAcct" id="acct"></a>
+<a href="user_post.php" class="button">Post Workouts</a>
+<a href="user_view.php" class="button">View Workouts</a>
 </div>
 </form> 
 </body>

@@ -39,13 +39,13 @@
 </div>
 
 <div class="main">
-<h2>Post Workout</h2>
+<h2>Post Workouts</h2>
 
 <?php
 session_start();
 $id = $_SESSION['id'];
 ?>
-<a href="student_home.html"><img src="home.png" alt="MyHome" id="home"></a>
+<a href="coach_home.html"><img src="home.png" alt="MyHome" id="home"></a>
 <form action="post.php" method="post">
     <p>Workout:<br><select name="workout" required>
 		<option value="bench">Bench</option>

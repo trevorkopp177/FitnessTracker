@@ -39,20 +39,28 @@
 
 <div class="main">
 
-<h2>View Workout</h2>
+<h2>View Workouts</h2>
 
 <?php
 session_start();
 $id = $_SESSION['id'];
 ?>
-<a href="student_home.html"><img src="home.png" alt="MyHome" id="home"></a>
-<form action="view.php" method="post">
+<a href="coach_home.html"><img src="home.png" alt="MyHome" id="home"></a>
+<form action="view2.php" method="post">
     Workout:<br><select name="workout" required>
 		<option value="bench">Bench</option>
 		<option value="squat">Squat</option>
 		<option value="deadlift">Deadlift</option>
 		<option value="other">Other</option>
-		<option value="all">All</option>
+		<option value="other">All</option>
+	</select>
+	<br>
+	Group:<br><select name="subgroup" type="text">
+		<option value="sprinter">Sprinter</option>
+		<option value="thrower">Thrower</option>
+		<option value="distance">Distance</option>
+		<option value="other">Other</option>
+		<option value="other">All</option>
 	</select>
 	<br>
 	Date:<br><input type="date" name="day">
@@ -64,3 +72,4 @@ $id = $_SESSION['id'];
 </div>
 </body>
 </html>
+
