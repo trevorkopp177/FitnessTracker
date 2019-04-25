@@ -23,9 +23,11 @@ $sgroup = $_POST["subgroup"];
 
 
 $tmp = "SELECT id FROM Coaches WHERE usrname = '$coach'";
+$result = $conn->query($tmp);
+$row = $result->fetch_assoc();
+$coachID = $row["id"];
 
-
-$sql = "INSERT INTO Users (firstname, lastname, usrname, password, coach, subgroup) VALUES ('$fname', '$lname', '$uname', '$passwd', '$coachID')";
+$sql = "INSERT INTO Users (firstname, lastname, usrname, password, coach, subgroup) VALUES ('$fname', '$lname', '$uname', '$passwd', '$coachID', '$sgroup')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Sign up successfully!";

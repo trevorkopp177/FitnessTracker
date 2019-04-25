@@ -62,6 +62,7 @@ $dbname = "MyFitnessTracker";
 $workout = $_POST["workout"];
 $id = $_SESSION['id'];
 $date = $_POST["day"];
+$sgroup = $_POST["subgroup"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -70,13 +71,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_POST["workout"]) & $workout == "all"){
-$sql = "SELECT * FROM Workouts WHERE userId = '$id' ORDER BY date DESC";
-} else if (isset($_POST["day"]) & $date != ""){
-$sql = "SELECT * FROM Workouts WHERE type = '$workout' and date = '$date' and userId = '$id'";
-} else {
-$sql = "SELECT * FROM Workouts WHERE type = '$workout' and userId = '$id' ORDER BY date DESC";
-}
+$sql = "SELECT * FROM Workouts WHERE type = '$workout' and date = '$date' and userId IN (SELECT id FROM Users WHERE subgroup = '$sgroup')";
+
 $result = $conn->query($sql);
 ?>
 
@@ -88,9 +84,17 @@ $result = $conn->query($sql);
 <br><?php echo $workout ?> workouts...<br>
 <br>
 <a href="student_home.html"><img src="home.png" alt="MyHome" id="home"></a>
+
+<div>
+<form method="post" action="export.php">
+	<input type="submit" name="export" value="Export">
+</form>
+</div>
+
 <table class="auto-style2" style="width: 56%">
 	<tr class="top">
-		<td style="width: 243; height: 23" class="auto-style1">Date</td>
+		<td style="width: 243; height: 23" class="auto-style1">Name</td>
+		<td style"width: 243px; height: 23px;"></td>
 		<td style"width: 229px; height: 23px;">Weight</td>
 		<td style="width: 229px; height: 23px;">Sets</td>
 		<td style="width: 229px; height: 23px;">Reps</td>
@@ -98,8 +102,14 @@ $result = $conn->query($sql);
 	<?php
 		if($result->num_rows > 0){
 			while($row = $result->fetch_assoc()){
+				$tmp = $row["id"];
+				$name = "SELECT * FROM Users WHERE id = '$tmp'";
+				$result2 = $conn->query($name);
+				$row2 = $result2->fetch_assoc();
 				echo "<tr><td style=\"width: 243; height: 2\" class=\"auto-style3\">";
-				echo $row["date"];
+				echo $row2["firstname"];
+				echo "<tr><td style=\"width: 243; height: 2\" class=\"auto-style3\">";
+				echo $row2["lastname"];
 				echo "</td><td style=\"width: 229px\" class=\"auto-style3\">";
 				echo $row["weight"];
 				echo "</td><td style=\"width: 229px\" class=\"auto-style3\">";
@@ -112,8 +122,8 @@ $result = $conn->query($sql);
 	?>
 </table>
 </div>
-</body>
 <?php
 $conn->close();
 ?>
+</body>
 </html>

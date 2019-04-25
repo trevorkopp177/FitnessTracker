@@ -22,8 +22,11 @@ if (!$conn) {
 }
 
 
-
-$sql = "SELECT * FROM Users WHERE usrname = '$myusername' and password = '$mypassword'";
+if (isset($_POST["userType"]) & $userType == "coach"){
+	$sql = "SELECT * FROM Coaches WHERE usrname = '$myusername' and password = '$mypassword'";
+} else {
+	$sql = "SELECT * FROM Users WHERE usrname = '$myusername' and password = '$mypassword'";
+}
 
 $result = $conn->query($sql);
 
@@ -35,10 +38,10 @@ if ($result->num_rows === 1) {
 	if (!isset($_SESSION['id'])) { 
 		if($userType == "coach"){
 			$_SESSION['id'] = $row["id"];        
-			header("location: coach_home.php");
+			header("location: coach_home.html");
 		} else {
 			$_SESSION['id'] = $row["id"];        
-			header("location: student_home.php");
+			header("location: student_home.html");
 		}
 	}
 	

@@ -70,13 +70,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_POST["workout"]) & $workout == "all"){
-$sql = "SELECT * FROM Workouts WHERE userId = '$id' ORDER BY date DESC";
-} else if (isset($_POST["day"]) & $date != ""){
-$sql = "SELECT * FROM Workouts WHERE type = '$workout' and date = '$date' and userId = '$id'";
-} else {
-$sql = "SELECT * FROM Workouts WHERE type = '$workout' and userId = '$id' ORDER BY date DESC";
-}
+$sql = "SELECT * FROM Suggested WHERE userId = '$id' and date = '$date'";
+
 $result = $conn->query($sql);
 ?>
 
@@ -84,13 +79,12 @@ $result = $conn->query($sql);
 	<img src="logo.png" alt="FitnessTracker">
 </div>
 <div class="main">
-<h2>Workout Log</h2>
-<br><?php echo $workout ?> workouts...<br>
+<h2>Suggested Workout</h2>
 <br>
 <a href="student_home.html"><img src="home.png" alt="MyHome" id="home"></a>
 <table class="auto-style2" style="width: 56%">
 	<tr class="top">
-		<td style="width: 243; height: 23" class="auto-style1">Date</td>
+		<td style="width: 243; height: 23" class="auto-style1">Exercise</td>
 		<td style"width: 229px; height: 23px;">Weight</td>
 		<td style="width: 229px; height: 23px;">Sets</td>
 		<td style="width: 229px; height: 23px;">Reps</td>
@@ -99,7 +93,7 @@ $result = $conn->query($sql);
 		if($result->num_rows > 0){
 			while($row = $result->fetch_assoc()){
 				echo "<tr><td style=\"width: 243; height: 2\" class=\"auto-style3\">";
-				echo $row["date"];
+				echo $row["type"];
 				echo "</td><td style=\"width: 229px\" class=\"auto-style3\">";
 				echo $row["weight"];
 				echo "</td><td style=\"width: 229px\" class=\"auto-style3\">";

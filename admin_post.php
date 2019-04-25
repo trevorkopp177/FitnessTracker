@@ -65,6 +65,13 @@ $id = $_SESSION['id'];
 	</p>
 	<p>Date:<br><input type="date" name="day">
 	</p>
+	Group:<br><select name="subgroup" type="text">
+		<option value="sprinter">Sprinter</option>
+		<option value="thrower">Thrower</option>
+		<option value="distance">Distance</option>
+		<option value="other">All</option>
+	</select>
+	<br><p>&nbsp;</p>
 	<input type="submit" value="Post"> <input type="reset">
 	<br>
 	
